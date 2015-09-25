@@ -1,5 +1,8 @@
 import sys
+<<<<<<< HEAD
 import random
+=======
+>>>>>>> ee1d374fb9e32a12e9a771290e503744612e7736
 
 def subnet_calculator():
   masks = [255,254,252,248,240,224,192,128,0]
@@ -13,7 +16,11 @@ def subnet_calculator():
       ip_address = raw_input("Enter an IP address: ")
       ipaddress_in_decimal_octets = ip = split_in_octets(ip_address)
 
+<<<<<<< HEAD
       #print ip
+=======
+      print ip
+>>>>>>> ee1d374fb9e32a12e9a771290e503744612e7736
 
       if (len(ip) == 4) and \
           (1 <= int(ip[0]) <= 223) and \
@@ -31,7 +38,11 @@ def subnet_calculator():
       subnet_mask = raw_input("Enter Subnet Mask: ")
       mask_in_decimal_octets = sm = split_in_octets(subnet_mask)
       
+<<<<<<< HEAD
       #print sm
+=======
+      print sm
+>>>>>>> ee1d374fb9e32a12e9a771290e503744612e7736
 
       if (len(sm) == 4) and (int(sm[0]) == 255) and (int(sm[1]) in masks) and (int(sm[2]) in masks) and (int(sm[3]) in masks) and (int(sm[0]) >= int(sm[1]) >= int(sm[2]) >= int(sm[3])):
         break
@@ -40,7 +51,11 @@ def subnet_calculator():
         continue
 
     mask_in_binary = "".join(decimal_to_bin_octet(subnet_mask))
+<<<<<<< HEAD
     #print "Netmask in binary: " + mask_in_binary
+=======
+    print "Netmask in binary: " + mask_in_binary
+>>>>>>> ee1d374fb9e32a12e9a771290e503744612e7736
 
     # calculate the number of hosts in the the subnet
     number_of_zeros = mask_in_binary.count("0")
@@ -54,6 +69,7 @@ def subnet_calculator():
       wildcard_octets.append(str(w_octect))
 
     wildcard_mask = ".".join(wildcard_octets)
+<<<<<<< HEAD
     #print "Wildcard Mask: " + wildcard_mask
   
     ipaddress_in_binary = "".join(decimal_to_bin_octet(ip_address))
@@ -97,10 +113,26 @@ def subnet_calculator():
           print "Exiting...."
           break
     
+=======
+    print "Wildcard Mask: " + wildcard_mask
+  
+    ipaddress_in_binary = "".join(decimal_to_bin_octet(ip_address)
+    print "IP address in binary: " + ipaddress_in_binary
+
+    # Get the network address and broadcast address
+    network_address_in_binary = ipaddress_in_binary[:number_of_ones] + "0" * number_of_zeros
+    print "Network Address in binary: " + network_address_in_binary
+
+    # Get the broadcast address and broadcast address
+    broadcast_address_in_binary = ipaddress_in_binary[:number_of_ones] + "0" * number_of_zeros
+    print "Broadcast Address in binary: " + broadcast_address_in_binary
+
+>>>>>>> ee1d374fb9e32a12e9a771290e503744612e7736
   except KeyboardInterrupt: 
     print "\n\nProgram aborted by user. Exiting...\n"
     sys.exit()
 
+<<<<<<< HEAD
 def generate_random_ipaddress(network_address,broadcast_address):
   random_ip = []
   network_address_oct = network_address.split('.')
@@ -123,11 +155,14 @@ def generate_random_ipaddress(network_address,broadcast_address):
           random_ip.append(str(rand_octet))
 
   return random_ip
+=======
+>>>>>>> ee1d374fb9e32a12e9a771290e503744612e7736
 
 def split_in_octets(string_octets):
   octets = string_octets.split('.')
   return octets
 
+<<<<<<< HEAD
 def bin_to_decimal_octet(octets_binary):
   address_in_octets = []
   address_in_decimal = []
@@ -143,6 +178,8 @@ def bin_to_decimal_octet(octets_binary):
 
   return address_in_decimal
 
+=======
+>>>>>>> ee1d374fb9e32a12e9a771290e503744612e7736
 def decimal_to_bin_octet(octets_decimal):
   octet_padded = []
   octets = octets_decimal.split('.')
